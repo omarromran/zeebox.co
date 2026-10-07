@@ -187,6 +187,10 @@ html,body{overflow-x:hidden;max-width:100%;}
 .product-detail-main>div{position:relative;}
 .product-detail-main{position:relative;}
 .product-page-actions{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:600}
+.checkout-header-actions{display:flex;gap:10px;align-items:center}
+.checkout-header-actions .button{min-height:42px;padding-inline:16px;font-size:13px}
+.cart-status{margin:0 0 12px;color:var(--cocoa-700);font-size:13px}
+@media(max-width:767px){.checkout-header-actions .button:last-child{display:none}.checkout-header-actions .button{min-height:44px}.cart-status{font-size:14px}}
 .hero .button-light{background:var(--cocoa-700);color:var(--white-choc-50)}
 .hero .button-light:hover{background:var(--cocoa-900);color:var(--white-choc-50)}
 .product-page{max-width:1120px;margin:0 auto;padding:48px 24px 96px}

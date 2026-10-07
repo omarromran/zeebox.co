@@ -14,18 +14,18 @@
   <main class="product-page">
     <a class="back-link" href="index.html">← Back to menu</a>
     <section class="product-page-layout">
-      <img class="product-page-image" src="assets/images/lotus-brownies.jpg" alt="Brownie Box with 9 brownies">
+      <img class="product-page-image" data-product-image alt="Brownie Box with 9 brownies">
       <div class="product-page-info">
-        <p class="eyebrow">9 brownies per box</p><h1>Brownie Box</h1>
-        <p class="product-page-description">Rich, fudgy brownies baked fresh for sharing or gifting.</p>
-        <strong class="product-page-price">600 EGP <small>/ box</small></strong>
+        <p class="eyebrow" data-product-pieces></p><h1 data-product-name></h1>
+        <p class="product-page-description" data-product-description></p>
+        <strong class="product-page-price" data-product-price></strong>
         <div class="box-count"><span>Number of boxes</span><div><button type="button" data-box-qty="-1" aria-label="Remove one box">−</button><b data-box-qty-value>1</b><button type="button" data-box-qty="1" aria-label="Add one box">+</button></div><p data-box-total>1 box · 9 brownies</p></div>
         <div data-box-fields></div>
         <button class="button button-light product-add" data-product-add>Add to cart</button>
       </div>
     </section>
   </main>
-  <aside class="cart-drawer" aria-label="Shopping cart"><div class="drawer-head"><h2>Your cart</h2><button class="icon-button" data-close-cart>Close</button></div><div data-cart-content></div></aside><div class="drawer-backdrop" data-close-cart></div>
+  <aside class="cart-drawer" aria-label="Shopping cart"><div class="drawer-head"><h2>Your cart</h2><button class="icon-button" data-close-cart>Close</button></div><p class="cart-status" role="status" aria-live="polite"></p><div data-cart-content></div></aside><div class="drawer-backdrop" data-close-cart></div>
   <script src="js/config.js"></script><script src="js/products.js"></script><script src="js/cart.js"></script><script src="js/product-page.js"></script>
 </body>
 </html>

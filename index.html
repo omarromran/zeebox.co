@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#3a200d">
-  <meta name="description" content="Freshly baked Zee Box brownies in Cairo. Good chocolate, soft centers, zero overthinking.">
+  <meta name="description"
+    content="Freshly baked Zee Box brownies in Cairo. Good chocolate, soft centers, zero overthinking.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Brownies. That's it. | Zee Box">
   <meta property="og:description" content="Good chocolate. Soft centers. Zero overthinking.">
@@ -26,8 +27,7 @@
     <a class="brand" href="#top"><img src="assets/brand/logo.jpg" alt="Zee Box"></a>
     <nav class="desktop-nav">
       <a href="#menu">Menu</a>
-      <a href="#about">About</a>
-      <a href="https://www.instagram.com/zeebox.co/" target="_blank">Instagram</a>
+      <a href="https://www.instagram.com/zeebox.co/" target="_blank" rel="noreferrer">Instagram</a>
     </nav>
     <button class="cart-trigger" data-open-cart>Cart <b data-cart-count>0</b></button>
   </header>
@@ -35,7 +35,8 @@
     <section class="hero">
       <div class="hero-media">
         <div class="hero-image"></div>
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/kinder-brownies.jpg">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+          poster="assets/images/kinder-brownies.jpg">
           <source src="assets/video/hero-brownies.mp4">
         </video>
       </div>
@@ -56,12 +57,6 @@
       </div>
       <div class="product-grid" data-products></div>
     </section>
-    <section class="order-strip">
-      <div>
-        <p class="eyebrow">No complicated steps</p>
-        <h2>From craving<br>to <em>cart.</em></h2>
-      </div>
-    </section>
   </main>
   <footer class="site-footer">
     <div class="footer-top">
@@ -72,7 +67,10 @@
         <a href="https://wa.me/201098401914" target="_blank">WhatsApp</a>
       </div>
     </div>
-    <div class="footer-bottom"><span>Copyright omarromran</span><span>Made for brownie people.</span></div>
+
+    <div class="footer-bottom"><span>Copyright omarromran</span><span>Made for brownie people.
+      
+    </span></div>
   </footer>
   <div class="drawer-backdrop" data-close-cart></div>
   <aside class="cart-drawer" aria-label="Shopping cart">
@@ -80,7 +78,7 @@
       <h2>Your cart</h2>
       <button class="icon-button" data-close-cart aria-label="Close cart">Close</button>
     </div>
-    <div data-cart-content></div>
+    <p class="cart-status" role="status" aria-live="polite"></p><div data-cart-content></div>
   </aside>
   <script src="js/config.js"></script>
   <script src="js/products.js"></script>
