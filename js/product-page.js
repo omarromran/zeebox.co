@@ -7,6 +7,6 @@ function renderCart() { $("[data-cart-count]").textContent = Cart.count(); $("[d
 fields(); Cart.changed = renderCart; renderCart();
 $("[data-box-qty]").parentElement.parentElement.addEventListener("click", event => { const button = event.target.closest("[data-box-qty]"); if (!button) return; $("[data-box-qty-value]").textContent = Math.max(1, Math.min(20, Number($("[data-box-qty-value]").textContent) + Number(button.dataset.boxQty))); fields(); });
 $("[data-box-fields]").addEventListener("input", event => { if (event.target.matches("[data-box-sentence]")) event.target.value = maxSentence(event.target.value); });
-$("[data-product-add]").onclick = () => { Cart.addBoxes(product.id, $$('[data-box-sentence]').map(input => maxSentence(input.value))); location.href = "index.html#menu"; };
+$("[data-product-add]").onclick = () => { Cart.addBoxes(product.id, $$('[data-box-sentence]').map(input => maxSentence(input.value))); renderCart(); $(".cart-drawer").classList.add("is-open"); $(".drawer-backdrop").classList.add("is-open"); };
 $("[data-open-cart]").onclick = () => { $(".cart-drawer").classList.add("is-open"); $(".drawer-backdrop").classList.add("is-open"); renderCart(); };
 $$('[data-close-cart]').forEach(button => button.onclick = () => { $(".cart-drawer").classList.remove("is-open"); $(".drawer-backdrop").classList.remove("is-open"); });
