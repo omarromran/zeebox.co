@@ -187,6 +187,8 @@ html,body{overflow-x:hidden;max-width:100%;}
 .product-detail-main>div{position:relative;}
 .product-detail-main{position:relative;}
 .product-page-actions{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:600}
+.hero .button-light{background:var(--cocoa-700);color:var(--white-choc-50)}
+.hero .button-light:hover{background:var(--cocoa-900);color:var(--white-choc-50)}
 .product-page{max-width:1120px;margin:0 auto;padding:48px 24px 96px}
 .back-link{display:inline-block;margin-bottom:28px;color:var(--cocoa-700);font-size:14px}
 .product-page-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:clamp(40px,7vw,96px);align-items:center}
