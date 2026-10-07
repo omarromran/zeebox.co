@@ -4,6 +4,7 @@ const Cart = {
   save() { try { localStorage.setItem(CART_KEY, JSON.stringify(this.items)); } catch {} this.changed?.(); },
   addBoxes(id, sentences) { sentences.forEach(sentence => this.items.push({ uid: `${Date.now()}-${Math.random().toString(36).slice(2)}`, id, sentence: sentence.trim() })); this.save(); },
   update(uid, sentence) { const item = this.items.find(box => box.uid === uid); if (item) { item.sentence = sentence.trim(); this.save(); } },
+  updateSilently(uid, sentence) { const item = this.items.find(box => box.uid === uid); if (item) { item.sentence = sentence.trim(); try { localStorage.setItem(CART_KEY, JSON.stringify(this.items)); } catch {} } },
   change(uid, delta) { const index = this.items.findIndex(box => box.uid === uid); if (index < 0) return; if (delta > 0) { const source = this.items[index]; for (let i = 0; i < delta; i++) this.items.splice(index + 1, 0, { ...source, uid: `${Date.now()}-${Math.random().toString(36).slice(2)}` }); } else if (delta < 0) this.items.splice(index, 1); this.save(); },
   remove(uid) { this.items = this.items.filter(box => box.uid !== uid); this.save(); },
   detailed() { return this.items.map(box => ({ ...box, ...PRODUCTS.find(product => product.id === box.id) })).filter(box => box.name && box.available); },
