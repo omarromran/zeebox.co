@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#3a200d">
+  <meta name="description" content="Complete your Zee Box brownie order.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>Checkout | Zee Box</title>
   <link rel="icon" href="assets/brand/logo.jpg">
   <link rel="stylesheet" href="css/styles.css">
@@ -17,14 +20,14 @@
       <form id="checkout-form" novalidate>
         <p class="form-label">Your details</p>
         <div class="form-grid">
-          <label>Full name *<input name="name" required></label><label>Email *<input name="email" type="email" required></label>
-          <label>Phone number *<input name="phone" required></label><label>Governorate *<input name="governorate" value="Cairo" required></label>
-          <label>Area *<input name="area" required></label><label>Street *<input name="street" required></label>
-          <label>Building number *<input name="building" required></label><label>Floor *<input name="floor" required></label>
-          <label>Apartment number *<input name="apartment" required></label><label class="full">Delivery notes<textarea name="notes" rows="3"></textarea></label>
+          <label>Full name *<input name="name" autocomplete="name" required></label><label>Email *<input name="email" type="email" autocomplete="email" required></label>
+          <label>Phone number *<input name="phone" type="tel" autocomplete="tel" required></label><label>Governorate *<input name="governorate" value="Cairo" autocomplete="address-level1" required></label>
+          <label>Area *<input name="area" autocomplete="address-level2" required></label><label>Street *<input name="street" autocomplete="street-address" required></label>
+          <label>Building number *<input name="building" inputmode="numeric" required></label><label>Floor *<input name="floor" inputmode="numeric" required></label>
+          <label>Apartment number *<input name="apartment" inputmode="numeric" required></label><label class="full">Delivery notes<textarea name="notes" rows="3"></textarea></label>
         </div>
         <p class="form-error" data-form-error></p>
-        <button class="button button-dark checkout-submit" type="submit">Complete Order on WhatsApp</button>
+        <button class="button button-dark checkout-submit" type="submit">Order via WhatsApp</button>
       </form>
     </section>
   </main>

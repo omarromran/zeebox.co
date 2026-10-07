@@ -1,14 +1,13 @@
-const CART_KEY = "zeebox-cart", CART_EXPIRY_KEY = "zeebox-cart-expires";
+const CART_KEY = "zeebox-cart";
 const Cart = {
-  items: (() => { try { return JSON.parse(localStorage.getItem(CART_KEY) || "[]"); } catch { return []; } })(),
+  items: (() => { try { const saved = JSON.parse(localStorage.getItem(CART_KEY) || "[]"); return saved.flatMap(item => item.uid ? [item] : Array.from({ length: item.qty || 1 }, () => ({ uid: `${Date.now()}-${Math.random().toString(36).slice(2)}`, id: item.id, sentence: item.customSentence || "" }))); } catch { return []; } })(),
   save() { try { localStorage.setItem(CART_KEY, JSON.stringify(this.items)); } catch {} this.changed?.(); },
-  scheduleClear() { try { localStorage.setItem(CART_EXPIRY_KEY, String(Date.now() + 300000)); } catch {} },
-  clearExpired() { try { if (Number(localStorage.getItem(CART_EXPIRY_KEY)) <= Date.now()) { this.items = []; localStorage.removeItem(CART_KEY); localStorage.removeItem(CART_EXPIRY_KEY); } } catch {} },
-  add(id) { const item = this.items.find(i => i.id === id); item ? item.qty++ : this.items.push({ id, qty: 1 }); this.save(); },
-  change(id, delta) { const item = this.items.find(i => i.id === id); if (item) item.qty += delta; this.items = this.items.filter(i => i.qty > 0); this.save(); },
-  remove(id) { this.items = this.items.filter(i => i.id !== id); this.save(); },
-  detailed() { return this.items.map(i => ({ ...PRODUCTS.find(p => p.id === i.id), qty: i.qty })).filter(i => i.name && i.available); },
-  count() { return this.items.reduce((n, i) => n + i.qty, 0); },
-  total() { return this.detailed().reduce((n, i) => n + i.price * i.qty, 0); }
+  addBoxes(id, sentences) { sentences.forEach(sentence => this.items.push({ uid: `${Date.now()}-${Math.random().toString(36).slice(2)}`, id, sentence: sentence.trim() })); this.save(); },
+  update(uid, sentence) { const item = this.items.find(box => box.uid === uid); if (item) { item.sentence = sentence.trim(); this.save(); } },
+  change(uid, delta) { const index = this.items.findIndex(box => box.uid === uid); if (index < 0) return; if (delta > 0) { const source = this.items[index]; for (let i = 0; i < delta; i++) this.items.splice(index + 1, 0, { ...source, uid: `${Date.now()}-${Math.random().toString(36).slice(2)}` }); } else if (delta < 0) this.items.splice(index, 1); this.save(); },
+  remove(uid) { this.items = this.items.filter(box => box.uid !== uid); this.save(); },
+  detailed() { return this.items.map(box => ({ ...box, ...PRODUCTS.find(product => product.id === box.id) })).filter(box => box.name && box.available); },
+  count() { return this.items.length; },
+  pieces() { return this.count() * 9; },
+  total() { return this.detailed().reduce((sum, box) => sum + box.price, 0); }
 };
-Cart.clearExpired();

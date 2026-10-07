@@ -1,0 +1,12 @@
+const $ = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
+const product = PRODUCTS[0];
+const maxSentence = value => { let count = 0; return [...value].filter(char => /\s/.test(char) || ++count <= 30).join(""); };
+function fields() { const count = Number($("[data-box-qty-value]").textContent); const values = $$('[data-box-sentence]').map(input => input.value); $("[data-box-fields]").innerHTML = Array.from({ length: count }, (_, i) => `<label class="box-customization"><span>Box ${i + 1} <small>Optional · this sentence is written on this box</small></span><input data-box-sentence maxlength="60" value="${(values[i] || "").replaceAll('"', "&quot;")}" placeholder="e.g. Happy Birthday Sarah"></label>`).join(""); $("[data-box-total]").textContent = `${count} ${count === 1 ? "box" : "boxes"} · ${count * 9} brownies`; }
+function renderCart() { $("[data-cart-count]").textContent = Cart.count(); $("[data-cart-content]").innerHTML = Cart.items.length ? `<div class="cart-total"><span>${Cart.count()} boxes · ${Cart.pieces()} brownies</span><strong>${Cart.total().toLocaleString()} EGP</strong></div><p class="delivery-note">Delivery fees not included</p><a class="button full-button" href="checkout.html">Checkout / Order on WhatsApp</a>` : `<div class="empty-cart"><h3>Your cart is waiting.</h3></div>`; }
+fields(); Cart.changed = renderCart; renderCart();
+$("[data-box-qty]").parentElement.parentElement.addEventListener("click", event => { const button = event.target.closest("[data-box-qty]"); if (!button) return; $("[data-box-qty-value]").textContent = Math.max(1, Math.min(20, Number($("[data-box-qty-value]").textContent) + Number(button.dataset.boxQty))); fields(); });
+$("[data-box-fields]").addEventListener("input", event => { if (event.target.matches("[data-box-sentence]")) event.target.value = maxSentence(event.target.value); });
+$("[data-product-add]").onclick = () => { Cart.addBoxes(product.id, $$('[data-box-sentence]').map(input => maxSentence(input.value))); location.href = "index.html#menu"; };
+$("[data-open-cart]").onclick = () => { $(".cart-drawer").classList.add("is-open"); $(".drawer-backdrop").classList.add("is-open"); renderCart(); };
+$$('[data-close-cart]').forEach(button => button.onclick = () => { $(".cart-drawer").classList.remove("is-open"); $(".drawer-backdrop").classList.remove("is-open"); });

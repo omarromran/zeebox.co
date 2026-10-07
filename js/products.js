@@ -1,9 +1,9 @@
 const PRODUCTS = [{
   id: "brownie-box",
-  name: "The Zee Box",
-  description: "Deep chocolate, fudgy center, and made for sharing.",
-  price: 320,
-  image: "product 2.jpg",
-  gallery: ["product 2.jpg", "product 1.jpg", "product 3.jpg"],
+  name: "Brownie Box",
+  description: "9 rich, fudgy brownies baked fresh for sharing or gifting.",
+  price: 600,
+  image: "assets/images/lotus-brownies.jpg",
+  gallery: ["assets/images/lotus-brownies.jpg", "assets/images/kinder-brownies.jpg", "assets/images/classic-brownies.jpg"],
   available: true
 }];

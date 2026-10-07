@@ -37,7 +37,7 @@
 }
 
 /* Landing-page palette and product-grid standardization */
-:root{--caramel-500:#C58A3A;--cream-100:#FDFBF7;--white-choc-50:#FFFDF8;--radius:16px}
+:root{--caramel-500:#fd9b6e;--cream-100:#FDFBF7;--white-choc-50:#FFFDF8;--radius:16px}
 body{background:var(--cream-100)}
 .site-header{background:rgba(253,251,247,.96)}
 .product-image{aspect-ratio:1/1}
@@ -46,7 +46,7 @@ body{background:var(--cream-100)}
 @media(min-width:1024px){.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .product-card{border-radius:16px;background:var(--white-choc-50)}
 .add-button,.button-light{background:var(--caramel-500);color:var(--cocoa-900);font-weight:700}
-.add-button:hover,.button-light:hover{background:#D39A45;color:var(--cocoa-900)}
+.add-button:hover,.button-light:hover{background:#f8895a;color:var(--cocoa-900)}
 @media(max-width:639px){
   body{min-width:320px}
   .site-header{gap:12px}
@@ -64,8 +64,8 @@ body{background:var(--cream-100)}
 .hero{display:flex;align-items:center;min-height:82vh;max-width:none;position:relative;overflow:hidden;background:var(--cocoa-900);isolation:isolate}
 .hero-media{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero-image,.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-image{background:var(--cocoa-900) url('../product 1.jpg') center/cover no-repeat;filter:sepia(.12) saturate(.9)}
-.hero-video{opacity:0;transition:opacity 300ms ease-out}
+.hero-image{background:var(--cocoa-900) url('../assets/images/kinder-brownies.jpg') center/cover no-repeat;filter:sepia(.12) saturate(.9)}
+.hero-video{opacity:1;transition:opacity 300ms ease-out}
 .hero-video.is-ready{opacity:1}
 .hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(59,31,20,.88),rgba(59,31,20,.48) 55%,rgba(59,31,20,.28));pointer-events:none}
 .hero-copy{position:relative;z-index:2;width:min(620px,100%);padding-inline:0}
@@ -179,7 +179,46 @@ html,body{overflow-x:hidden;max-width:100%;}
 .checkout-page-card{position:relative!important;inset:auto!important;width:min(760px,100%);height:auto;max-height:none;margin:0 auto;transform:none!important;opacity:1;pointer-events:auto;border-radius:var(--radius);box-shadow:var(--shadow)}
 .cart-customization{display:block;margin:12px 0 0;grid-column:1/-1;font-size:12px;color:var(--cocoa-700)}
 .cart-customization input{margin-top:5px}
+.product-customization{display:block;margin:0 0 14px;font-size:13px}
+.product-customization input{margin-top:6px}
+.product-quantity{display:flex;align-items:center;gap:14px;margin:0 0 18px}
+.product-quantity button{width:40px;height:40px;border-radius:50%;background:var(--white-choc-50);border:1px solid var(--kraft-300)}
+.product-quantity span{min-width:24px;text-align:center;font-weight:700}
 .product-detail-main>div{position:relative;}
+.product-detail-main{position:relative;}
+.product-page-actions{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:600}
+.product-page{max-width:1120px;margin:0 auto;padding:48px 24px 96px}
+.back-link{display:inline-block;margin-bottom:28px;color:var(--cocoa-700);font-size:14px}
+.product-page-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:clamp(40px,7vw,96px);align-items:center}
+.product-page-image{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)}
+.product-page-info h1{font-family:'Chewy',cursive;font-size:clamp(3rem,6vw,5.5rem);font-weight:400;line-height:1;margin:0 0 16px}
+.product-page-description{max-width:34ch;color:var(--cocoa-700);font-family:'Playfair Display',Georgia,serif;font-size:18px}
+.product-page-price{display:block;font-size:24px;margin:24px 0}.product-page-price small{font-size:13px;font-weight:500;color:var(--cocoa-700)}
+.product-add{width:100%;margin-top:14px}
+@media(max-width:767px){.product-page{padding:28px 20px 72px}.product-page-layout{display:block}.product-page-image{margin-bottom:32px}.product-page-info h1{font-size:clamp(3rem,15vw,4.5rem)}.product-page-actions{gap:12px}.product-page-actions>a{display:none}}
+.product-pieces{display:block;color:var(--caramel-500);font-size:11px;font-weight:700;letter-spacing:.14em;margin-bottom:6px}
+.product-meta:before{content:none}
+.product-meta strong small,.product-detail-main strong small{font-size:12px;font-weight:500;color:var(--cocoa-700)}
+.box-count{margin:22px 0;border-top:1px solid var(--kraft-300);border-bottom:1px solid var(--kraft-300);padding:16px 0}
+.box-count>span{display:block;font-size:13px;font-weight:700;margin-bottom:10px}
+.box-count>div{display:flex;align-items:center;gap:14px}
+.box-count button{width:42px;height:42px;border-radius:50%;background:var(--white-choc-50);border:1px solid var(--kraft-300);font-size:24px}
+.box-count b{min-width:24px;text-align:center}
+.box-count p{margin:10px 0 0;color:var(--cocoa-700);font-size:14px}
+.box-customization{display:block;margin:12px 0;font-size:13px}
+.box-customization span{display:flex;justify-content:space-between;font-weight:700}
+.box-customization small{font-weight:400;color:var(--cocoa-700)}
+.box-customization input{min-height:46px;margin-top:6px}
+@media(max-width:767px){
+  body{padding-top:70px;}
+  .site-header{min-height:70px;}
+  .product-detail-main .carousel-arrow{width:42px;height:42px;}
+  .cart-item{min-width:0;}
+  .cart-customization{grid-column:1/-1;width:100%;}
+  .cart-customization input{min-height:44px;}
+  .product-customization input{min-height:46px;}
+}
+@media(max-width:430px){body{padding-top:70px;}.site-header{min-height:70px;}.brand{width:52px;height:52px;}}
 .customization-option{display:flex;align-items:center;gap:10px;cursor:pointer;}
 .customization-option input{width:18px;margin:0;accent-color:var(--caramel-500);}
 .customization-field input{margin-top:6px;}

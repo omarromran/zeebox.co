@@ -5,6 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#3a200d">
+  <meta name="description" content="Freshly baked Zee Box brownies in Cairo. Good chocolate, soft centers, zero overthinking.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Brownies. That's it. | Zee Box">
+  <meta property="og:description" content="Good chocolate. Soft centers. Zero overthinking.">
+  <meta property="og:image" content="assets/brand/logo.jpg">
+  <meta property="og:image:alt" content="Zee Box logo">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Brownies. That's it. | Zee Box">
+  <meta name="twitter:image" content="assets/brand/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>Brownies. That's it. | Zee Box</title>
   <link rel="icon" href="assets/brand/logo.jpg">
   <link rel="stylesheet" href="css/styles.css">
@@ -24,7 +35,7 @@
     <section class="hero">
       <div class="hero-media">
         <div class="hero-image"></div>
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/kinder-brownies.jpg">
           <source src="assets/video/hero-brownies.mp4">
         </video>
       </div>
@@ -35,12 +46,6 @@
         <a class="button button-light" href="#menu">Order brownies</a>
       </div>
     </section>
-    <!-- <section class="intro" id="about">
-      <p class="eyebrow">No fuss, just good brownies</p>
-      <h2>Made for the<br><em>sweet spot.</em></h2>
-      <p>Rich, fudgy, and baked with the good stuff. Pick a box, make it yours, and we will meet you on WhatsApp.
-      </p>
-    </section> -->
     <section class="menu-section" id="menu">
       <div class="section-heading">
         <div>
@@ -77,36 +82,6 @@
     </div>
     <div data-cart-content></div>
   </aside>
-  <div class="modal-backdrop" data-close-checkout></div>
-  <section class="checkout-modal">
-    <div class="drawer-head">
-      <div>
-        <p class="eyebrow">Almost there</p>
-        <h2>Checkout</h2>
-      </div>
-      <button class="icon-button" data-close-checkout aria-label="Close checkout">Close</button>
-    </div>
-    <form id="checkout-form" novalidate>
-      <p class="form-label">Your details</p>
-      <div class="form-grid">
-        <label>Full name *<input name="name" required></label>
-        <label>Email *<input name="email" type="email" required></label>
-        <label>Phone number *<input name="phone" required></label>
-        <label>Governorate *<input name="governorate" value="Cairo" required></label>
-        <label>Area *<input name="area" required></label>
-        <label>Street *<input name="street" required></label>
-        <label>Building number *<input name="building" required></label>
-        <label>Floor *<input name="floor" required></label>
-        <label>Apartment number *<input name="apartment" required></label>
-        <label class="full">Delivery notes<textarea name="notes" rows="3"></textarea></label>
-        <label class="full customization-option"><input type="checkbox" name="customize" id="customize-sentence"> Add a custom sentence to the box</label>
-        <label class="full customization-field" id="customization-field" hidden>Custom sentence *<input name="customSentence" id="custom-sentence" maxlength="60" placeholder="Type your sentence"></label>
-      </div>
-      <p class="form-error" data-form-error></p>
-      <div class="summary" data-summary></div>
-      <button class="button button-dark checkout-submit" type="submit">Complete Order</button>
-    </form>
-  </section>
   <script src="js/config.js"></script>
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
@@ -114,11 +89,3 @@
 </body>
 
 </html>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Brownies. That's it. | Zee Box">
-<meta property="og:description" content="Good chocolate. Soft centers. Zero overthinking.">
-<meta property="og:image" content="logo.jpg">
-<meta property="og:image:alt" content="Zee Box logo">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Brownies. That's it. | Zee Box">
-<meta name="twitter:image" content="logo.jpg">
