@@ -74,7 +74,8 @@
   <script src="js/checkout.js" defer></script>
   <script>
     document.querySelector("#checkout-form").addEventListener("submit", event => {
-      if (event.target.checkValidity() && Cart.count()) setTimeout(() => Cart.clear(), 30000);
+      const phone = event.target.elements.phone.value.replace(/[\s()-]/g, "");
+      if (event.target.checkValidity() && /^01[0125]\d{8}$/.test(phone) && Cart.count()) setTimeout(() => Cart.clear(), 0);
     });
   </script>
 </body>
