@@ -19,6 +19,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>Brownies. That's it. | Zee Box</title>
   <link rel="icon" href="assets/brand/logo.jpg">
+  <link rel="preload" as="image" href="assets/optimized/product 1.jpg" fetchpriority="high">
+  <link rel="prefetch" href="product.html" as="document">
+  <link rel="prefetch" href="checkout.html" as="document">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -31,20 +34,20 @@
     </nav>
     <button class="cart-trigger" data-open-cart>Cart <b data-cart-count>0</b></button>
   </header>
+  <div class="announcement-bar" role="note">Need them today? Same-day orders are available when placed before 7:00 AM ·
+    Delivery via Uber · Delivery fees paid by the customer</div>
   <main id="top">
     <section class="hero">
       <div class="hero-media">
         <div class="hero-image"></div>
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata"
-          poster="assets/images/kinder-brownies.jpg">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
           <source src="assets/video/hero-brownies.mp4">
         </video>
       </div>
       <div class="hero-copy">
         <p class="eyebrow">Zee Box - Cairo</p>
         <h1>Brownies.<br><em>That's it.</em></h1>
-        <p class="hero-note">Good chocolate. Soft centers. Zero overthinking.</p>
-        <a class="button button-light" href="#menu">Order brownies</a>
+        <a class="button button-light" href="#menu">Order now</a>
       </div>
     </section>
     <section class="menu-section" id="menu">
@@ -69,8 +72,8 @@
     </div>
 
     <div class="footer-bottom"><span>Copyright omarromran</span><span>Made for brownie people.
-      
-    </span></div>
+
+      </span></div>
   </footer>
   <div class="drawer-backdrop" data-close-cart></div>
   <aside class="cart-drawer" aria-label="Shopping cart">
@@ -78,12 +81,13 @@
       <h2>Your cart</h2>
       <button class="icon-button" data-close-cart aria-label="Close cart">Close</button>
     </div>
-    <p class="cart-status" role="status" aria-live="polite"></p><div data-cart-content></div>
+    <p class="cart-status" role="status" aria-live="polite"></p>
+    <div data-cart-content></div>
   </aside>
-  <script src="js/config.js"></script>
-  <script src="js/products.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/products.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/app.js" defer></script>
 </body>
 
 </html>

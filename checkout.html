@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -11,20 +12,43 @@
   <link rel="icon" href="assets/brand/logo.jpg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <header class="site-header"><a class="brand" href="index.html"><img src="assets/brand/logo.jpg" alt="Zee Box"></a><div class="checkout-header-actions"><a class="button" href="product.html?cart=open">Back to cart</a><a class="button" href="index.html">Back to menu</a></div></header>
+  <header class="site-header"><a class="brand" href="index.html"><img src="assets/brand/logo.jpg" alt="Zee Box"></a>
+    <div class="checkout-header-actions"><a class="button" href="product.html?cart=open">Back to cart</a><a
+        class="button" href="index.html">Back to menu</a></div>
+  </header>
   <main class="checkout-page">
     <section class="checkout-modal is-open checkout-page-card">
-      <div class="drawer-head"><div><p class="eyebrow">Almost there</p><h2>Checkout</h2></div></div>
+      <div class="drawer-head">
+        <div>
+          <p class="eyebrow">Almost there</p>
+          <h2>Checkout</h2>
+        </div>
+      </div>
       <div data-summary></div>
+      <div class="delivery-policy" role="note"><strong>Delivery &amp; payment policy</strong>
+        <p>Please order 24 hours ahead so we can prepare your brownies fresh.</p>
+        <p>Need them today? Order before 7:00 AM for same-day delivery. Later orders arrive the following day.</p>
+        <p>Uber delivery is available; the customer pays the delivery fee.</p>
+        <p>A 50% InstaPay deposit is required 24 hours before pickup.</p>
+        <p><a href="https://ipn.eg/S/zeina.fawzy.ahly/instapay/0zRVbP" target="_blank" rel="noopener"><strong>Pay via
+              InstaPay: zeina.fawzy.ahly@instapay</strong></a></p>
+        <p>After paying, attach your receipt screenshot in WhatsApp with your order details.</p>
+      </div>
       <form id="checkout-form" novalidate>
         <p class="form-label">Your details</p>
         <div class="form-grid">
-          <label>Full name *<input name="name" autocomplete="name" required></label><label>Email *<input name="email" type="email" autocomplete="email" required></label>
-          <label>Phone number *<input name="phone" type="tel" autocomplete="tel" required></label><label>Governorate *<input name="governorate" value="Cairo" autocomplete="address-level1" required></label>
-          <label>Area *<input name="area" autocomplete="address-level2" required></label><label>Street *<input name="street" autocomplete="street-address" required></label>
-          <label>Building number *<input name="building" inputmode="numeric" required></label><label>Floor *<input name="floor" inputmode="numeric" required></label>
-          <label>Apartment number *<input name="apartment" inputmode="numeric" required></label><label class="full">Delivery notes<textarea name="notes" rows="3"></textarea></label>
+          <label>Full name *<input name="name" autocomplete="name" required></label><label>Email *<input name="email"
+              type="email" autocomplete="email" required></label>
+          <label>Phone number *<input name="phone" type="tel" autocomplete="tel" required></label><label>Governorate
+            *<input name="governorate" value="Cairo" autocomplete="address-level1" required></label>
+          <label>Area *<input name="area" autocomplete="address-level2" required></label><label>Street *<input
+              name="street" autocomplete="street-address" required></label>
+          <label>Building number *<input name="building" inputmode="numeric" required></label><label>Floor *<input
+              name="floor" inputmode="numeric" required></label>
+          <label>Apartment number *<input name="apartment" inputmode="numeric" required></label><label
+            class="full">Delivery notes<textarea name="notes" rows="3"></textarea></label>
         </div>
         <p class="form-error" data-form-error></p>
         <button class="button button-dark checkout-submit" type="submit">Order via WhatsApp</button>
@@ -32,6 +56,27 @@
     </section>
   </main>
   <div data-products style="display:none"></div>
-  <script src="js/config.js"></script><script src="js/products.js"></script><script src="js/cart.js"></script><script src="js/checkout.js"></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/products.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <!-- <script>
+    document.querySelector("#checkout-form").addEventListener("submit", event => {
+      const form = event.target;
+      const fields = ["building", "street", "area"];
+      const address = fields.map(name => form.elements[name]?.value.trim()).filter(Boolean).join(" ") + " Egypt";
+      const mapsLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
+      const notes = form.elements.notes;
+      if (address && !notes.value.includes("Google Maps location")) {
+        notes.value = notes.value + (notes.value ? "\n" : "") + "Google Maps location: " + mapsLink;
+      }
+    }, true);
+  </script>-->
+  <script src="js/checkout.js" defer></script>
+  <script>
+    document.querySelector("#checkout-form").addEventListener("submit", event => {
+      if (event.target.checkValidity() && Cart.count()) setTimeout(() => Cart.clear(), 30000);
+    });
+  </script>
 </body>
+
 </html>

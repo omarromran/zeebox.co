@@ -7,6 +7,7 @@
   <meta name="description" content="Customize your Zee Box Brownie Box.">
   <title>Brownie Box | Zee Box</title>
   <link rel="icon" href="assets/brand/logo.jpg">
+  <link rel="prefetch" href="checkout.html" as="document">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="product-page-body">
@@ -14,7 +15,12 @@
   <main class="product-page">
     <a class="back-link" href="index.html">← Back to menu</a>
     <section class="product-page-layout">
-      <img class="product-page-image" data-product-image alt="Brownie Box with 9 brownies">
+      <div class="product-gallery" data-product-gallery>
+        <img class="product-page-image" data-product-image alt="Brownie Box with 9 brownies">
+        <button class="gallery-arrow gallery-prev" type="button" data-gallery-prev aria-label="Previous image">‹</button>
+        <button class="gallery-arrow gallery-next" type="button" data-gallery-next aria-label="Next image">›</button>
+        <div class="gallery-dots" data-gallery-dots></div>
+      </div>
       <div class="product-page-info">
         <p class="eyebrow" data-product-pieces></p><h1 data-product-name></h1>
         <p class="product-page-description" data-product-description></p>
@@ -26,6 +32,6 @@
     </section>
   </main>
   <aside class="cart-drawer" aria-label="Shopping cart"><div class="drawer-head"><h2>Your cart</h2><button class="icon-button" data-close-cart>Close</button></div><p class="cart-status" role="status" aria-live="polite"></p><div data-cart-content></div></aside><div class="drawer-backdrop" data-close-cart></div>
-  <script src="js/config.js"></script><script src="js/products.js"></script><script src="js/cart.js"></script><script src="js/product-page.js"></script>
+  <script src="js/config.js" defer></script><script src="js/products.js" defer></script><script src="js/cart.js" defer></script><script src="js/product-page.js" defer></script>
 </body>
 </html>

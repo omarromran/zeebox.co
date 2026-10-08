@@ -2,6 +2,7 @@ const CART_KEY = "zeebox-cart";
 const Cart = {
   items: (() => { try { const saved = JSON.parse(localStorage.getItem(CART_KEY) || "[]"); return saved.flatMap(item => item.uid ? [item] : Array.from({ length: item.qty || 1 }, () => ({ uid: `${Date.now()}-${Math.random().toString(36).slice(2)}`, id: item.id, sentence: item.customSentence || "" }))); } catch { return []; } })(),
   save() { try { localStorage.setItem(CART_KEY, JSON.stringify(this.items)); } catch {} this.changed?.(); },
+  clear() { this.items = []; this.save(); },
   addBoxes(id, sentences) { sentences.forEach(sentence => this.items.push({ uid: `${Date.now()}-${Math.random().toString(36).slice(2)}`, id, sentence: sentence.trim() })); this.save(); },
   update(uid, sentence) { const item = this.items.find(box => box.uid === uid); if (item) { item.sentence = sentence.trim(); this.save(); } },
   updateSilently(uid, sentence) { const item = this.items.find(box => box.uid === uid); if (item) { item.sentence = sentence.trim(); try { localStorage.setItem(CART_KEY, JSON.stringify(this.items)); } catch {} } },

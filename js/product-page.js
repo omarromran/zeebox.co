@@ -1,6 +1,13 @@
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
 const product = PRODUCTS[0];
+let galleryIndex = 0;
+const gallery = product.gallery || [product.image];
+function showGalleryImage(index) { galleryIndex = (index + gallery.length) % gallery.length; $("[data-product-image]").src = gallery[galleryIndex]; $("[data-gallery-dots]").querySelectorAll("[data-gallery-dot]").forEach((dot, i) => dot.classList.toggle("is-active", i === galleryIndex)); }
+let galleryTimer;
+function restartGallery() { clearInterval(galleryTimer); galleryTimer = setInterval(() => { showGalleryImage(galleryIndex + 1); restartGallery(); }, galleryIndex === 0 ? 5500 : 4500); }
+function setupGallery() { $("[data-gallery-dots]").innerHTML = gallery.map((_, i) => "<button type=\"button\" data-gallery-dot aria-label=\"Show image " + (i + 1) + "\"></button>").join(""); $("[data-gallery-dots]").querySelectorAll("[data-gallery-dot]").forEach((dot, i) => dot.onclick = () => { showGalleryImage(i); restartGallery(); }); $("[data-gallery-prev]").onclick = () => { showGalleryImage(galleryIndex - 1); restartGallery(); }; $("[data-gallery-next]").onclick = () => { showGalleryImage(galleryIndex + 1); restartGallery(); }; let startX = 0; const image = $("[data-product-image]"); image.addEventListener("touchstart", event => { startX = event.changedTouches[0].clientX; }, { passive: true }); image.addEventListener("touchend", event => { const distance = event.changedTouches[0].clientX - startX; if (Math.abs(distance) > 40) { showGalleryImage(galleryIndex + (distance < 0 ? 1 : -1)); restartGallery(); } }, { passive: true }); }
+setupGallery(); showGalleryImage(0); restartGallery();
 const maxSentence = value => { let count = 0; return [...value].filter(char => /\s/.test(char) || ++count <= 30).join(""); };
 $("[data-product-image]").src = product.image;
 $("[data-product-name]").textContent = product.name;

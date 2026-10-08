@@ -4,7 +4,7 @@ const PRODUCTS = [{
   description: "9 rich, fudgy brownies baked fresh for sharing or gifting.",
   pieces: 9,
   price: 600,
-  image: "assets/images/lotus-brownies.jpg",
-  gallery: ["assets/images/lotus-brownies.jpg", "assets/images/kinder-brownies.jpg", "assets/images/classic-brownies.jpg"],
+  image: "assets/optimized/product 1.jpg",
+  gallery: ["assets/optimized/product 1.jpg", "assets/optimized/bride-turns-25.webp", "assets/optimized/good-luck-coworkers.webp", "assets/optimized/graduation.webp"],
   available: true
 }];
