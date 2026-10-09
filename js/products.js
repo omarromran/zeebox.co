@@ -13,7 +13,7 @@ const PRODUCTS = [{
   description: "A box of 9 fudgy brownies topped with irresistible chocolate swirls—the perfect balance of two delicious worlds. Add a custom message to make them extra special.",
   pieces: 9,
   price: 600,
-  image: "assets/images/The Yin-Yang Box.png",
-  gallery: ["assets/images/The Yin-Yang Box.png", "assets/images/Happy Birthday ying yangBox.png"],
+  image: "assets/optimized/yin-yang-box.webp",
+  gallery: ["assets/optimized/yin-yang-box.webp", "assets/optimized/happy-birthday-yin-yang.webp"],
   available: true
 }];
