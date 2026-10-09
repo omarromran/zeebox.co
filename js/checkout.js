@@ -10,6 +10,7 @@ $("#checkout-form").onsubmit = event => {
   if (!Cart.count()) { error.textContent = "Your cart is empty."; return; }
   const order = boxes.map((box, i) => "*BOX " + (i + 1) + "*\n" + box.name + "\n*Custom Sentence* :- \"" + (box.sentence || "No custom message") + "\"\nPrice: " + money(box.price)).join("\n\n\n");
   const message = "Hello! I'd like to place an order 🍫\n\n*Customer Details*\nName: " + data.name + "\nPhone: " + data.phone + "\nEmail: " + data.email + "\n\n*Delivery Address*\nGovernorate: " + data.governorate + "\nArea: " + data.area + "\nStreet: " + data.street + "\nBuilding: " + data.building + "\nFloor: " + data.floor + "\nApartment: " + data.apartment + (data.notes ? "\nNotes: " + data.notes : "") + "\n\n*Order*\n" + order + "\n\n*Total*\n" + Cart.count() + " " + (Cart.count() === 1 ? "box" : "boxes") + " · " + Cart.pieces() + " brownies\nSubtotal: " + money(Cart.total()) + "\nDelivery: Uber *Covered by the Customer*\n\nThank you! 🤎";
-  const cleanedMessage = message.replace(/\s*[·•]\s*\d+\s+brownies/gi, "");
+  const breakdown = Object.entries(boxes.reduce((counts, box) => { counts[box.name] = (counts[box.name] || 0) + 1; return counts; }, {})).map(([name, count]) => count + " " + name).join(", ");
+  const cleanedMessage = message.replace(/\s*[·•]\s*\d+\s+brownies/gi, "").replace("\nSubtotal:", " - " + breakdown + "\nSubtotal:");
   window.open("https://wa.me/" + BUSINESS_CONFIG.whatsapp + "?text=" + encodeURIComponent(cleanedMessage), "_blank");
 };
