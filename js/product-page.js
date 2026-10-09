@@ -1,6 +1,6 @@
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
-const productId = new URLSearchParams(location.search).get("product") || PRODUCTS[0].id;
+const productId = document.body.dataset.productId || new URLSearchParams(location.search).get("product") || PRODUCTS[0].id;
 const product = PRODUCTS.find(item => item.id === productId) || PRODUCTS[0];
 document.title = product.name + " | Zee Box";
 let galleryIndex = 0;
