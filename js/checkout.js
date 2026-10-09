@@ -8,7 +8,7 @@ $("#checkout-form").onsubmit = event => {
   if (!form.checkValidity()) { error.textContent = "Please complete all required fields."; form.querySelector(":invalid").focus(); return; }
   const phone = data.phone.replace(/[\s()-]/g, ""); if (!/^01[0125]\d{8}$/.test(phone)) { error.textContent = "Please enter a valid Egyptian mobile number."; form.phone.focus(); return; }
   if (!Cart.count()) { error.textContent = "Your cart is empty."; return; }
-  const order = boxes.map(box => "*" + box.name + "*\n" + box.description + "\n" + box.pieces + " brownies\n" + (box.sentence ? "Custom message: “" + box.sentence + "”" : "No custom message") + "\nPrice: " + money(box.price) + "\nProduct image: " + new URL(box.image, location.href).href).join("\n\n");
+  const order = boxes.map((box, i) => "*BOX " + (i + 1) + "*\n" + box.name + "\n" + (box.sentence ? "*“" + box.sentence + "”*" : "*No custom message*") + "\nPrice: " + money(box.price)).join("\n\n\n");
   const message = "Hello! I'd like to place an order 🍫\n\n*Customer Details*\nName: " + data.name + "\nPhone: " + data.phone + "\nEmail: " + data.email + "\n\n*Delivery Address*\nGovernorate: " + data.governorate + "\nArea: " + data.area + "\nStreet: " + data.street + "\nBuilding: " + data.building + "\nFloor: " + data.floor + "\nApartment: " + data.apartment + (data.notes ? "\nNotes: " + data.notes : "") + "\n\n*Order*\n" + order + "\n\n*Total*\n" + Cart.count() + " " + (Cart.count() === 1 ? "box" : "boxes") + " · " + Cart.pieces() + " brownies\nSubtotal: " + money(Cart.total()) + "\nDelivery: Not included\n\nThank you! 🤎";
   window.open("https://wa.me/" + BUSINESS_CONFIG.whatsapp + "?text=" + encodeURIComponent(message), "_blank");
 };
