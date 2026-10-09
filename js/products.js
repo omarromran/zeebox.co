@@ -14,6 +14,6 @@ const PRODUCTS = [{
   pieces: 9,
   price: 600,
   image: "assets/images/The Yin-Yang Box.png",
-  gallery: ["assets/images/The Yin-Yang Box.png"],
+  gallery: ["assets/images/The Yin-Yang Box.png", "assets/images/Happy Birthday ying yangBox.png"],
   available: true
 }];
