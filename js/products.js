@@ -1,6 +1,6 @@
 const PRODUCTS = [{
   id: "brownie-box",
-  name: "Brownie Box",
+  name: "The Brownie Box",
   description: "A rich, fudgy brownie topped with a generous chocolate drizzle and personalized white chocolate lettering. Customize it with any message you like!",
   pieces: 9,
   price: 600,
