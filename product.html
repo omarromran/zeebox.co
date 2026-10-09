@@ -33,6 +33,5 @@
   </main>
   <aside class="cart-drawer" aria-label="Shopping cart"><div class="drawer-head"><h2>Your cart</h2><button class="icon-button" data-close-cart>Close</button></div><p class="cart-status" role="status" aria-live="polite"></p><div data-cart-content></div></aside><div class="drawer-backdrop" data-close-cart></div>
   <script src="js/config.js" defer></script><script src="js/products.js?v=yin-yang-2" defer></script><script src="js/cart.js" defer></script><script src="js/product-page.js?v=yin-yang-2" defer></script>
-  <script>window.addEventListener("load", () => { Cart.detailed().forEach((box, i) => { const title = document.querySelectorAll(".cart-item h3")[i]; if (title) title.textContent = box.name; }); });</script>
 </body>
 </html>
