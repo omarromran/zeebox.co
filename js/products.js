@@ -1,7 +1,7 @@
 const PRODUCTS = [{
   id: "brownie-box",
   name: "Brownie Box",
-  description: "9 rich, fudgy brownies baked fresh for sharing or gifting.",
+  description: "A rich, fudgy brownie topped with a generous chocolate drizzle and personalized white chocolate lettering. Customize it with any message you like!",
   pieces: 9,
   price: 600,
   image: "assets/optimized/product 1.jpg",
@@ -10,7 +10,7 @@ const PRODUCTS = [{
 }, {
   id: "yin-yang-box",
   name: "The Yin-Yang Box",
-  description: "9 rich, fudgy brownies baked fresh for sharing or gifting.",
+  description: "A box of 9 fudgy brownies topped with irresistible chocolate swirls—the perfect balance of two delicious worlds. Add a custom message to make them extra special.",
   pieces: 9,
   price: 600,
   image: "assets/images/The Yin-Yang Box.png",
