@@ -1,6 +1,8 @@
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
-const product = PRODUCTS[0];
+const productId = new URLSearchParams(location.search).get("product") || PRODUCTS[0].id;
+const product = PRODUCTS.find(item => item.id === productId) || PRODUCTS[0];
+document.title = product.name + " | Zee Box";
 let galleryIndex = 0;
 const gallery = product.gallery || [product.image];
 function showGalleryImage(index) { galleryIndex = (index + gallery.length) % gallery.length; $("[data-product-image]").src = gallery[galleryIndex]; $("[data-gallery-dots]").querySelectorAll("[data-gallery-dot]").forEach((dot, i) => dot.classList.toggle("is-active", i === galleryIndex)); }
