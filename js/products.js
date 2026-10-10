@@ -1,4 +1,4 @@
-const slugifyProductName = name => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const slugifyProductName = name => name.toLowerCase().replace(/^the\s+/, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const PRODUCTS = [{
   id: "brownie-box",
   name: "The Brownie Box",
