@@ -93,6 +93,15 @@
   <script src="js/products.js?v=yin-yang-4" defer></script>
   <script src="js/cart.js" defer></script>
   <script src="js/app.js?v=yin-yang-5" defer></script>
+  <script>
+    window.addEventListener("load", () => {
+      const product = PRODUCTS[2]; const grid = document.querySelector("[data-products]");
+      return;
+      const card = document.createElement("article"); card.className = "product-card";
+      card.innerHTML = "<div class=\"product-view\" data-view=\"" + product.id + "\"><div class=\"product-image\"><img src=\"" + product.gallery[0] + "\" alt=\"" + product.name + "\" loading=\"lazy\" decoding=\"async\"><button class=\"gallery-arrow gallery-prev\" type=\"button\" aria-label=\"Previous image\">‹</button><button class=\"gallery-arrow gallery-next\" type=\"button\" aria-label=\"Next image\">›</button></div><div class=\"product-meta\"><span class=\"product-pieces\">" + product.pieces + " PIECES</span><h3>" + product.name + "</h3><p>" + product.description + "</p><strong>" + money(product.price) + " <small>/ box</small></strong></div></div><button class=\"add-button\" data-view=\"" + product.id + "\">Choose boxes</button>";
+      grid.appendChild(card); let index = 0; const image = card.querySelector("img"); const show = step => { index = (index + step + product.gallery.length) % product.gallery.length; image.src = product.gallery[index]; }; card.querySelector(".gallery-prev").onclick = event => { event.stopPropagation(); show(-1); }; card.querySelector(".gallery-next").onclick = event => { event.stopPropagation(); show(1); };
+    });
+  </script>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+const slugifyProductName = name => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const PRODUCTS = [{
   id: "brownie-box",
   name: "The Brownie Box",
@@ -15,5 +16,14 @@ const PRODUCTS = [{
   price: 600,
   image: "assets/optimized/yin-yang-box.webp",
   gallery: ["assets/optimized/yin-yang-box.webp", "assets/optimized/happy-birthday-yin-yang.webp"],
+  available: true
+}, {
+  id: slugifyProductName("The 42 reasons box"),
+  name: "The 42 Reasons Box",
+  description: "42 brownie bites, one box, and plenty to share! 🍫 Same rich, fudgy goodness in every bite — made for sharing with your favorite people.",
+  pieces: 42,
+  price: 650,
+  image: "assets/optimized/42-reasons-box.webp",
+  gallery: ["assets/optimized/42-reasons-box.webp", "assets/optimized/42-reasons-box-birthday.webp"],
   available: true
 }];

@@ -10,6 +10,6 @@ const Cart = {
   remove(uid) { this.items = this.items.filter(box => box.uid !== uid); this.save(); },
   detailed() { return this.items.map(box => ({ ...box, ...PRODUCTS.find(product => product.id === box.id) })).filter(box => box.name && box.available); },
   count() { return this.items.length; },
-  pieces() { return this.count() * 9; },
+  pieces() { return this.detailed().reduce((sum, box) => sum + box.pieces, 0); },
   total() { return this.detailed().reduce((sum, box) => sum + box.price, 0); }
 };
