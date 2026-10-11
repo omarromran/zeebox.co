@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>Checkout | Zee Box</title>
   <link rel="icon" href="assets/brand/logo.jpg">
-  <link rel="stylesheet" href="css/styles.css?v=announcement-fix">
+  <link rel="stylesheet" href="css/styles.css?v=announcement-fix-2">
 </head>
 
 <body>
@@ -72,12 +72,6 @@
     }, true);
   </script>-->
   <script src="js/checkout.js" defer></script>
-  <script>
-    document.querySelector("#checkout-form").addEventListener("submit", event => {
-      const phone = event.target.elements.phone.value.replace(/[\s()-]/g, "");
-      if (event.target.checkValidity() && /^01[0125]\d{8}$/.test(phone) && Cart.count()) setTimeout(() => Cart.clear(), 0);
-    });
-  </script>
 </body>
 
 </html>
