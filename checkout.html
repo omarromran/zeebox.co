@@ -59,18 +59,6 @@
   <script src="js/config.js" defer></script>
   <script src="js/products.js" defer></script>
   <script src="js/cart.js" defer></script>
-  <!-- <script>
-    document.querySelector("#checkout-form").addEventListener("submit", event => {
-      const form = event.target;
-      const fields = ["building", "street", "area"];
-      const address = fields.map(name => form.elements[name]?.value.trim()).filter(Boolean).join(" ") + " Egypt";
-      const mapsLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
-      const notes = form.elements.notes;
-      if (address && !notes.value.includes("Google Maps location")) {
-        notes.value = notes.value + (notes.value ? "\n" : "") + "Google Maps location: " + mapsLink;
-      }
-    }, true);
-  </script>-->
   <script src="js/checkout.js" defer></script>
 </body>
 
